@@ -32,8 +32,6 @@ on:
         required: true
         default: 'M5Note'
 
-env:
-  ssh: true66
 
 jobs:
   build:
@@ -91,13 +89,6 @@ jobs:
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
         git clone ${{ github.event.inputs.DEVICE_URL }} -b ${{ github.event.inputs.DEVICE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
-
-    - name: ssh连接
-      if: env.ssh == 'true'                
-      uses: P3TERX/ssh2actions@v1.0.0
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}      
 
     - name: Building
       run: |
