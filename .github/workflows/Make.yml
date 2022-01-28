@@ -32,6 +32,9 @@ on:
         required: true
         default: 'M5Note'
 
+env:
+  ssh: true66
+
 jobs:
   build:
     if: github.event.repository.owner.id == github.event.sender.id
@@ -96,6 +99,7 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
 
     - name: ssh连接
+      if: env.ssh == 'true'                
       uses: P3TERX/ssh2actions@v1.0.0
       env:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
