@@ -32,7 +32,7 @@ on:
         required: true
         default: 'M5Note'
 env:
-  ssh: true66
+  ssh: true
 
 jobs:
   build:
