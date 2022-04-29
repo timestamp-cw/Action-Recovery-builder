@@ -32,7 +32,7 @@ on:
         required: true
         default: 'm1882'
 env:
-  ssh: true
+  ssh: true6
 
 jobs:
   build:
