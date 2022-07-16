@@ -90,6 +90,7 @@ jobs:
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
         git clone ${{ github.event.inputs.DEVICE_URL }} -b ${{ github.event.inputs.DEVICE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
+        git clone https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
 
     - name: ssh连接
       if: env.ssh == 'true'                
